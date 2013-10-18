@@ -9,3 +9,25 @@
     position: absolute;
     bottom: 0;
     right: 0; }
+
+#left {
+  position: fixed;
+  top: 45px;
+  left: 0;
+  width: 130px;
+  height: 400px;
+  border: 1px solid gray;
+  background-color: lightgray; }
+  #left h5 {
+    text-align: center; }
+
+#right {
+  position: fixed;
+  top: 45px;
+  right: 0;
+  width: 130px;
+  height: 400px;
+  border: 1px solid gray;
+  background-color: lightgray; }
+  #right h5 {
+    text-align: center; }
