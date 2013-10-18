@@ -1,62 +1,72 @@
-// 'use strict';
+'use strict';
 
-// // Firebase Schema
-// var Δdb;
+$(document).ready(initialize);
 
-// // Local Schema (defined in keys.js)
+function initialize(){
+  $(document).foundation();
+  $('#createButton').click(clickCreateSeats);
+}
 
-// $(document).ready(initialize);
+// -------------------------------------------------------------------- //
+// -------------------------------------------------------------------- //
+// -------------------------------------------------------------------- //
 
-// function initialize(){
-//   $(document).foundation();
-//   Δdb = new Firebase(db.keys.firebase);
-//   initMap(36, -86, 5);
-// }
+function clickCreateSeats(){
+  var section = $('#section').val();
+  var amount = $('#amount').val();
+  var cost = $('#cost').val();
+  htmlCreateSeats(section, amount, cost);
+}
 
-// // -------------------------------------------------------------------- //
-// // -------------------------------------------------------------------- //
-// // -------------------------------------------------------------------- //
 
-// function initMap(lat, lng, zoom){
-//   var mapOptions = {center: new google.maps.LatLng(lat, lng), zoom: zoom, mapTypeId: google.maps.MapTypeId.ROADMAP};
-//   db.map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-// }
 
-// // -------------------------------------------------------------------- //
-// // -------------------------------------------------------------------- //
-// // -------------------------------------------------------------------- //
 
-// function getValue(selector, fn){
-//   var value = $(selector).val();
-//   value = value.trim();
-//   $(selector).val('');
+// -------------------------------------------------------------------- //
+// -------------------------------------------------------------------- //
+// -------------------------------------------------------------------- //
 
-//   if(fn){
-//     value = fn(value);
-//   }
+function htmlCreateSeats(section, amount, cost){
+  debugger;
+  var $section = $(section);
+  cost = formatCurrency(cost);
+  amount = parseInt(amount, 10);
+  var $div = $('<div>').addClass('seat');
+  $section.data('cost', cost);
+  for(var i = 0; i < amount; i++){
+    $section.append($div.clone());
+  }
+}
 
-//   return value;
-// }
 
-// function parseUpperCase(string){
-//   return string.toUpperCase();
-// }
 
-// function parseLowerCase(string){
-//   return string.toLowerCase();
-// }
+// -------------------------------------------------------------------- //
+// -------------------------------------------------------------------- //
+// -------------------------------------------------------------------- //
 
-// function formatCurrency(number){
-//   return '$' + number.toFixed(2);
-// }
+function getValue(selector, fn){
+  var value = $(selector).val();
+  value = value.trim();
+  $(selector).val('');
 
-// // -------------------------------------------------------------------- //
-// // -------------------------------------------------------------------- //
-// // -------------------------------------------------------------------- //
+  if(fn){
+    value = fn(value);
+  }
 
-// function canRun(flag){
-//   var isQunit = $('#qunit').length > 0;
-//   var isFlag = flag !== undefined;
-//   var value = isQunit && isFlag || !isQunit;
-//   return value;
-// }
+  return value;
+}
+
+function formatCurrency(number){
+  number = parseFloat(number);
+  return '$' + number.toFixed(2);
+}
+
+// -------------------------------------------------------------------- //
+// -------------------------------------------------------------------- //
+// -------------------------------------------------------------------- //
+
+function canRun(flag){
+  var isQunit = $('#qunit').length > 0;
+  var isFlag = flag !== undefined;
+  var value = isQunit && isFlag || !isQunit;
+  return value;
+}

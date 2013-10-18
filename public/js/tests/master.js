@@ -11,17 +11,18 @@ function teardownTest(){
 
 test('seat generation', function(){
   expect(4);
-  $('#section').val('genAdmission');
+  debugger;
+  $('#section').val('#genAdmission');
   $('#amount').val('30');
   $('#cost').val('$50');
   $('#createButton').trigger('click');
-  $('#section').val('vip');
+  $('#section').val('#vip');
   $('#amount').val('15');
   $('#cost').val('$110');
   $('#createButton').trigger('click');
 
   deepEqual($('#vip div').length, 15, 'there are 15 vip seats');
-  deepEqual($('#vip').data('price'), '$110', 'vip seats are $110');
-  deepEqual($('#genAdmission div').length, 15, 'there are 30 genAdmission seats');
-  deepEqual($('#genAdmission').data('price'), '$50', 'genAdmission seats are $110');
+  deepEqual($('#vip').data('cost'), '$110', 'vip seats are $110');
+  deepEqual($('#genAdmission div').length, 30, 'there are 30 genAdmission seats');
+  deepEqual($('#genAdmission').data('cost'), '$50', 'genAdmission seats are $110');
 });
