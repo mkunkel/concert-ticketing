@@ -2,9 +2,12 @@
 
 $(document).ready(initialize);
 
-function initialize(){
+function initialize(fn, flag){
+  if(!canRun(flag)) {return;}
   $(document).foundation();
   $('#createButton').click(clickCreateSeats);
+  $('#vip').on('click', 'div', dblClickVip);
+  $('#genAdmission').on('click', 'div', dblClickGenAdmission);
 }
 
 // -------------------------------------------------------------------- //
@@ -18,8 +21,14 @@ function clickCreateSeats(){
   htmlCreateSeats(section, amount, cost);
 }
 
+function dblClickVip() {
+  htmlReserveSeat($(this));
+}
 
-
+function dblClickGenAdmission() {
+  htmlReserveSeat($(this));
+  $('#name').focus();
+}
 
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
@@ -31,13 +40,33 @@ function htmlCreateSeats(section, amount, cost){
   console.log(cost);
   amount = parseInt(amount, 10);
   var $div = $('<div>').addClass('seat');
+  var $span = $('<span>').addClass('seatNum');
   $section.data('cost', cost);
+  var prefix = section === '#vip' ? 'V' : 'G';
   for(var i = 0; i < amount; i++){
-    $section.append($div.clone());
+    var $seat = $div.clone();
+    var $id = $span.clone().text(prefix + (i + 1));
+    $seat.append($id);
+    $section.append($seat);
+  }
+  for(var i = 0; i < $('select option').length; i++) {
+    if ($($('select option')[i]).val() === section) {
+      $($('select option')[i]).remove();
+    }
+  }
+  if ($('select option').length === 1) {
+    $('.createSeats').remove();
+    $('#name').focus();
   }
 }
 
+function htmlReserveSeat($seat) {
+  var reserved = $seat.hasClass('reserved');
 
+  if (!reserved) {
+    $seat.addClass('reserved').prepend($('#name').val());
+  }
+}
 
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //

@@ -3,6 +3,7 @@
 module('Integration Testing', {setup: setupTest, teardown: teardownTest});
 
 function setupTest(){
+  initialize(null, true);
 }
 
 function teardownTest(){
@@ -38,7 +39,7 @@ test('reserve seats', function(){
 
   $('#name').val('Chyld');
   $('#vip div:nth-child(5)').trigger('dblclick');
-
+  // debugger;
   deepEqual($('#vip div:nth-child(5)').text(), 'Chyld', 'double clicked to reserve seat for Chyld');
 
   $('#name').val('Bill');
@@ -52,7 +53,7 @@ test('reserve seats', function(){
   deepEqual($('#vip div:nth-child(5)').text(), 'Chyld', 'seat remained reserved');
 
   $('#name').val('Fritz');
-  $('#genAdmission').trigger('dblclick');
+  $('#genAdmission div:nth-child(5)').trigger('dblclick');
 
-  deepEqual($('#vip div:nth-child(5)').text(), 'Bill', 'seat remained reserved');
+  deepEqual($('#genAdmission div:nth-child(5)').text(), 'Bill', 'seat remained reserved');
 });

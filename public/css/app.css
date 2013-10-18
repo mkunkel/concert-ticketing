@@ -1,0 +1,11 @@
+.seat {
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  float: left;
+  font-size: 10px;
+  position: relative; }
+  .seat span {
+    position: absolute;
+    bottom: 0;
+    right: 0; }
