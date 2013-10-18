@@ -39,7 +39,6 @@ test('reserve seats', function(){
 
   $('#name').val('Chyld');
   $('#vip div:nth-child(5)').trigger('dblclick');
-  // debugger;
   deepEqual($('#vip div:nth-child(5)').text(), 'Chyld', 'double clicked to reserve seat for Chyld');
 
   $('#name').val('Bill');

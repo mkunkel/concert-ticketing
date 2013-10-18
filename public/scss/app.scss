@@ -1,3 +1,4 @@
+
 .row#menu {
   background-color: lighten(blue, 30%);
   min-width: 100%;
@@ -16,6 +17,7 @@
   border-bottom-right-radius: 100%;
   border-bottom-left-radius: 100%;
 }
+
 .seat{
   width: 40px;
   height: 40px;
@@ -38,4 +40,31 @@
 
 #vip, #genAdmission {
   margin-top: 30px;
+}
+
+#left{
+  position: fixed;
+  top: 45px;
+  left: 0;
+  width: 130px;
+  height: 400px;
+  border: 1px solid gray;
+  background-color: lightgray;
+  h5 {
+    text-align: center;
+  }
+}
+
+#right{
+  position: fixed;
+  top: 45px;
+  right: 0;
+  width: 130px;
+  height: 400px;
+  border: 1px solid gray;
+  background-color: lightgray;
+  h5 {
+    text-align: center;
+  }
+
 }
