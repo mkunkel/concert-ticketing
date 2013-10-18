@@ -26,9 +26,9 @@ function clickCreateSeats(){
 // -------------------------------------------------------------------- //
 
 function htmlCreateSeats(section, amount, cost){
-  debugger;
   var $section = $(section);
   cost = formatCurrency(cost);
+  console.log(cost);
   amount = parseInt(amount, 10);
   var $div = $('<div>').addClass('seat');
   $section.data('cost', cost);
@@ -56,6 +56,7 @@ function getValue(selector, fn){
 }
 
 function formatCurrency(number){
+  number = number.replace('$', '');
   number = parseFloat(number);
   return '$' + number.toFixed(2);
 }
