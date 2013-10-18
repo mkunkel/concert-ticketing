@@ -1,3 +1,6 @@
+body {
+  background-color: tan; }
+
 .row#menu {
   background-color: #9999ff;
   min-width: 100%;
@@ -6,7 +9,7 @@
   margin-bottom: 0; }
 
 #stage {
-  background-color: brown;
+  background: brown url(../img/wood.jpg);
   width: 600px;
   height: 100px;
   margin: auto;
