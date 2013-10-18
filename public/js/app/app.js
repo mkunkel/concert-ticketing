@@ -64,7 +64,7 @@ function htmlReserveSeat($seat) {
   var reserved = $seat.hasClass('reserved');
 
   if (!reserved) {
-    $seat.addClass('reserved').prepend($('#name').val());
+    $seat.addClass('reserved').prepend($('<span>').addClass('resName').text($('#name').val()));
   }
 }
 

@@ -38,21 +38,21 @@ test('reserve seats', function(){
   $('#createButton').trigger('click');
 
   $('#name').val('Chyld');
-  $('#vip div:nth-child(5)').trigger('dblclick');
-  deepEqual($('#vip div:nth-child(5)').text(), 'Chyld', 'double clicked to reserve seat for Chyld');
+  $('#vip div:nth-child(5)').trigger('click');
+  deepEqual($('#vip div:nth-child(5) .resName').text(), 'Chyld', 'double clicked to reserve seat for Chyld');
 
   $('#name').val('Bill');
-  $('#genAdmission div:nth-child(5)').trigger('dblclick');
+  $('#genAdmission div:nth-child(5)').trigger('click');
 
-  deepEqual($('#genAdmission div:nth-child(5)').text(), 'Bill', 'double clicked to reserve seat for Bill');
+  deepEqual($('#genAdmission div:nth-child(5) .resName').text(), 'Bill', 'double clicked to reserve seat for Bill');
 
   $('#name').val('Andy');
-  $('#vip div:nth-child(5)').trigger('dblclick');
+  $('#vip div:nth-child(5)').trigger('click');
 
-  deepEqual($('#vip div:nth-child(5)').text(), 'Chyld', 'seat remained reserved');
+  deepEqual($('#vip div:nth-child(5) .resName').text(), 'Chyld', 'seat remained reserved');
 
   $('#name').val('Fritz');
-  $('#genAdmission div:nth-child(5)').trigger('dblclick');
+  $('#genAdmission div:nth-child(5)').trigger('click');
 
-  deepEqual($('#genAdmission div:nth-child(5)').text(), 'Bill', 'seat remained reserved');
+  deepEqual($('#genAdmission div:nth-child(5) .resName').text(), 'Bill', 'seat remained reserved');
 });
