@@ -1,1 +1,20 @@
-/#map-canvas
+.row
+  .small-3.columns
+    %select#section.createSeats
+      %option Create Seats
+      %option{value: 'genAdmission'} General Admission
+      %option{value: 'vip'} VIP
+  .small-1.columns
+    %input#amount.createSeats{type: 'text', placeholder: '500'}
+  .small-1.columns
+    %input#cost.createSeats{type: 'text', placeholder: '$100'}
+  .small-2.columns
+    %input#createButton.createSeats{type: 'button', value: 'Create Seats'}
+  .small-2.columns.small-offset-3
+    %input#name{type: 'text', placeholder: 'Enter Name'}
+.row
+  .small-12.columns
+.row
+  .small-12.columns#vip
+.row
+  .small-12.columns#genAdmission

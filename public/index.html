@@ -12,7 +12,36 @@
   <script src='/js/app/keys.js'></script>
 </head>
 <body>
-  <!-- #map-canvas -->
+  <div class='row'>
+    <div class='small-3 columns'>
+      <select class='createSeats' id='section'>
+        <option>Create Seats</option>
+        <option value='genAdmission'>General Admission</option>
+        <option value='vip'>VIP</option>
+      </select>
+    </div>
+    <div class='small-1 columns'>
+      <input class='createSeats' id='amount' placeholder='500' type='text'>
+    </div>
+    <div class='small-1 columns'>
+      <input class='createSeats' id='cost' placeholder='$100' type='text'>
+    </div>
+    <div class='small-2 columns'>
+      <input class='createSeats' id='createButton' type='button' value='Create Seats'>
+    </div>
+    <div class='small-2 columns small-offset-3'>
+      <input id='name' placeholder='Enter Name' type='text'>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='small-12 columns'></div>
+  </div>
+  <div class='row'>
+    <div class='small-12 columns' id='vip'></div>
+  </div>
+  <div class='row'>
+    <div class='small-12 columns' id='genAdmission'></div>
+  </div>
   <script src='/js/vendor/jquery-1.10.2.js'></script>
   <script src='/js/vendor/foundation.min.js'></script>
   <script src='/js/vendor/underscore.js'></script>
