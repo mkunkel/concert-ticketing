@@ -6,8 +6,8 @@ function initialize(fn, flag){
   if(!canRun(flag)) {return;}
   $(document).foundation();
   $('#createButton').click(clickCreateSeats);
-  $('#vip').on('click', 'div', dblClickVip);
-  $('#genAdmission').on('click', 'div', dblClickGenAdmission);
+  $('#vip').on('dblclick', 'div', dblClickVip);
+  $('#genAdmission').on('dblclick', 'div', dblClickGenAdmission);
 }
 
 // -------------------------------------------------------------------- //
