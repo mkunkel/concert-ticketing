@@ -21,5 +21,29 @@
   .small-12.columns#genAdmission
 #left
   %h5 Totals
+  .total
+    Total VIP:
+    %span#vipTotal $0.00
+  .total
+    Total GA:
+    %span#genAdmissionTotal $0.00
+  .total
+    Grand Total:
+    %span#grandTotal $0.00
+  .total
+    VIP People:
+    %span#vipPeople 0
+  .total
+    GA People:
+    %span#gaPeople 0
+  .total
+    Total People:
+    %span#totalPeople 0
 #right
   %h5 Seat List
+  #listVip
+    .listTitle VIP
+    .peopleList
+  #listGenAdmission
+    .listTitle GA
+    .peopleList

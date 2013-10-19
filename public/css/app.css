@@ -50,7 +50,7 @@ body {
   position: fixed;
   top: 45px;
   left: 0;
-  width: 130px;
+  width: 160px;
   height: 400px;
   border: 1px solid gray;
   background-color: lightgray; }
@@ -61,9 +61,14 @@ body {
   position: fixed;
   top: 45px;
   right: 0;
-  width: 130px;
+  width: 160px;
   height: 400px;
   border: 1px solid gray;
   background-color: lightgray; }
   #right h5 {
     text-align: center; }
+
+.total {
+  font-weight: bold; }
+  .total span {
+    font-weight: normal; }
