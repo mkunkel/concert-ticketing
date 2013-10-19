@@ -19,21 +19,27 @@
 }
 
 .seat{
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   border: 1px solid black;
   float: left;
   font-size: 10px;
   position: relative;
   span {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    font-size: 8px;
-    color: darken(red, 20%);
+    &.resName {
+      font-weight: bold;
+      font-size: 10px;
+    }
+    &.seatNum {
+      font-size: 8px;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      color: darken(red, 20%);
+    }
   }
   &.reserved {
-    background-color: lighten(gray, 30%);
+    background-color: lighten(gray, 40%);
     background-image: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(255,255,255,.5) 5px, rgba(255,255,255,.5) 10px);
   }
 }

@@ -45,7 +45,7 @@ function htmlCreateSeats(section, amount, cost){
   var prefix = section === '#vip' ? 'V' : 'G';
   for(var i = 0; i < amount; i++){
     var $seat = $div.clone();
-    var $id = $span.clone().text(prefix + (i + 1));
+    var $id = $span.clone().addClass('seatNum').text(prefix + (i + 1));
     $seat.append($id);
     $section.append($seat);
   }
