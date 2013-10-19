@@ -2,6 +2,15 @@
 
 $(document).ready(initialize);
 
+var totals = {};
+totals.vip = {};
+totals.genAdmission = {};
+totals.vip.people = 0;
+totals.vip.cost = 0;
+totals.genAdmission.people = 0;
+totals.genAdmission.cost = 0;
+
+
 function initialize(fn, flag){
   if(!canRun(flag)) {return;}
   $(document).foundation();
@@ -23,6 +32,7 @@ function clickCreateSeats(){
 
 function dblClickVip() {
   htmlReserveSeat($(this));
+  $('#name').focus();
 }
 
 function dblClickGenAdmission() {
@@ -36,7 +46,7 @@ function dblClickGenAdmission() {
 
 function htmlCreateSeats(section, amount, cost){
   var $section = $(section);
-  cost = formatCurrency(cost);
+  cost = parseFloat(cost);
   console.log(cost);
   amount = parseInt(amount, 10);
   var $div = $('<div>').addClass('seat');
@@ -49,7 +59,7 @@ function htmlCreateSeats(section, amount, cost){
     $seat.append($id);
     $section.append($seat);
   }
-  for(var i = 0; i < $('select option').length; i++) {
+  for(i = 0; i < $('select option').length; i++) {
     if ($($('select option')[i]).val() === section) {
       $($('select option')[i]).remove();
     }
@@ -61,11 +71,26 @@ function htmlCreateSeats(section, amount, cost){
 }
 
 function htmlReserveSeat($seat) {
+  // debugger;
   var reserved = $seat.hasClass('reserved');
 
   if (!reserved) {
+    totals[$seat.parent().attr('id')].people++;
+    totals[$seat.parent().attr('id')].cost += $seat.parent().data('cost');
     $seat.addClass('reserved').prepend($('<span>').addClass('resName').text($('#name').val()));
+    htmlUpdateTotals();
   }
+}
+
+function htmlUpdateTotals() {
+  $('#vipTotal').text(formatCurrency(totals.vip.cost));
+  $('#genAdmissionTotal').text(formatCurrency(totals.genAdmission.cost));
+  var cost = totals.vip.cost + totals.genAdmission.cost;
+  $('#grandTotal').text(formatCurrency(cost));
+  $('#vipPeople').text(totals.vip.people);
+  $('#gaPeople').text(totals.genAdmission.people);
+  var people = totals.vip.people + totals.genAdmission.people;
+  $('#totalPeople').text(people);
 }
 
 // -------------------------------------------------------------------- //
@@ -85,7 +110,7 @@ function getValue(selector, fn){
 }
 
 function formatCurrency(number){
-  number = number.replace('$', '');
+  // number = number.replace('$', '');
   number = parseFloat(number);
   return '$' + number.toFixed(2);
 }
