@@ -47,7 +47,6 @@ function dblClickGenAdmission() {
 function htmlCreateSeats(section, amount, cost){
   var $section = $(section);
   cost = parseFloat(cost);
-  console.log(cost);
   amount = parseInt(amount, 10);
   var $div = $('<div>').addClass('seat');
   var $span = $('<span>').addClass('seatNum');
@@ -73,16 +72,18 @@ function htmlCreateSeats(section, amount, cost){
 function htmlReserveSeat($seat) {
   // debugger;
   var reserved = $seat.hasClass('reserved');
+  var section = $seat.parent().attr('id');
+  var name = $('#name').val();
 
   if (!reserved) {
-    totals[$seat.parent().attr('id')].people++;
-    totals[$seat.parent().attr('id')].cost += $seat.parent().data('cost');
-    $seat.addClass('reserved').prepend($('<span>').addClass('resName').text($('#name').val()));
-    htmlUpdateTotals();
+    totals[section].people++;
+    totals[section].cost += $seat.parent().data('cost');
+    $seat.addClass('reserved').prepend($('<span>').addClass('resName').text(name));
+    htmlUpdateTotals(section);
   }
 }
 
-function htmlUpdateTotals() {
+function htmlUpdateTotals(section) {
   $('#vipTotal').text(formatCurrency(totals.vip.cost));
   $('#genAdmissionTotal').text(formatCurrency(totals.genAdmission.cost));
   var cost = totals.vip.cost + totals.genAdmission.cost;
@@ -91,6 +92,21 @@ function htmlUpdateTotals() {
   $('#gaPeople').text(totals.genAdmission.people);
   var people = totals.vip.people + totals.genAdmission.people;
   $('#totalPeople').text(people);
+
+  // update people list
+  // _.map($('#vip .reserved'), function(seat){ return seat * 3; });
+
+  $('#' + section + 'List .peopleList').empty();
+  for (var i = 0; i < $('#' + section + ' .reserved').length; i++) {
+    var string;
+    string = $($('#' + section + ' .reserved')[i]).children('.seatNum').text();
+    string += ' - ';
+    string += $($('#' + section + ' .reserved')[i]).children('.resName').text();
+
+    var $div = $('<div>').text(string);
+    $('#' + section + 'List .peopleList').append($div);
+  }
+
 }
 
 // -------------------------------------------------------------------- //
