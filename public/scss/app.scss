@@ -1,3 +1,7 @@
+body
+{
+  background-color: tan;
+}
 
 .row#menu {
   background-color: lighten(blue, 30%);
@@ -8,7 +12,8 @@
 }
 
 #stage {
-  background-color: brown;
+  background: brown url(../img/wood.jpg);
+  // background-color: brown;
   width: 600px;
   height: 100px;
   margin: auto;
