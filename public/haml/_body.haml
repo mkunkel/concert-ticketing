@@ -9,10 +9,10 @@
   .small-1.columns
     %input#cost.createSeats{type: 'text', placeholder: '$100'}
   .small-2.columns
-    %input#createButton.createSeats{type: 'button', value: 'Create Seats'}
+    %input#createButton.createSeats.button.small.radius{type: 'button', value: 'Create Seats'}
   .small-2.columns.small-offset-3
     %input#name{type: 'text', placeholder: 'Enter Name'}
-.row
+.row#stageRow
   .small-12.columns
     #stage
 .row
@@ -44,6 +44,8 @@
   #vipList
     .listTitle VIP
     .peopleList
+    .clear
   #genAdmissionList
     .listTitle GA
     .peopleList
+    .clear

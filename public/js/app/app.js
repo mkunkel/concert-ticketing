@@ -17,6 +17,10 @@ function initialize(fn, flag){
   $('#createButton').click(clickCreateSeats);
   $('#vip').on('dblclick', 'div', dblClickVip);
   $('#genAdmission').on('dblclick', 'div', dblClickGenAdmission);
+  $('#stage').dblclick(populate);
+  console.log(window.innerHeight);
+  var height = window.innerHeight - parseInt($('#menu').css('height'), 10) + 2;
+  $('#left, #right').css('height', height);
 }
 
 // -------------------------------------------------------------------- //
@@ -140,4 +144,28 @@ function canRun(flag){
   var isFlag = flag !== undefined;
   var value = isQunit && isFlag || !isQunit;
   return value;
+}
+
+
+function populate() {
+  $('#section').val('#genAdmission');
+  $('#amount').val('30');
+  $('#cost').val('50');
+  $('#createButton').trigger('click');
+  $('#section').val('#vip');
+  $('#amount').val('15');
+  $('#cost').val('110');
+  $('#createButton').trigger('click');
+
+  $('#name').val('Chyld');
+  $('#vip div:nth-child(4)').trigger('dblclick');
+
+  $('#name').val('Bill');
+  $('#genAdmission div:nth-child(4)').trigger('dblclick');
+
+  $('#name').val('Andy');
+  $('#vip div:nth-child(6)').trigger('dblclick');
+
+  $('#name').val('Fritz');
+  $('#genAdmission div:nth-child(6)').trigger('dblclick');
 }
