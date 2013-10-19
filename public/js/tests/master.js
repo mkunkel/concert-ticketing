@@ -86,6 +86,6 @@ test('create reporting', function(){
   deepEqual($('#left #vipPeople').text(), '2', 'total VIP tickets sold');
   deepEqual($('#left #gaPeople').text(), '2', 'total GA tickets sold');
   deepEqual($('#left #totalPeople').text(), '4', 'total VIP and GA tickets sold');
-  deepEqual($('#right > #listVip .peopleList').text(), 'V3 - Andy', 'Andy is in V3');
-  deepEqual($('#right > #listGenAdmission .peopleList').text(), 'G3 - Hank', 'Hank is in G3');
+  deepEqual($('#right > #vipList .peopleList').text(), 'V3 - Andy', 'Andy is in V3');
+  deepEqual($('#right > #genAdmissionList .peopleList').text(), 'G3 - Hank', 'Hank is in G3');
 });
